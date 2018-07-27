@@ -22,6 +22,17 @@ a {
   font-size: 10px;
   color: grey; }
 
+.edit-procedure {
+  margin-left: 20px;
+  width: 125px;
+  height: 55px;
+  border-radius: 55px;
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: #f9a8fe;
+  border-radius: 6px; }
+
 .edit-button {
   margin-left: 20px;
   width: 225px;

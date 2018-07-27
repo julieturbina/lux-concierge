@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Procedure = require('../models/procedure.js');
-
+const User     = require('../models/user');
 // Test befor uncommenting =======
 
 // router.get('/books/add', (req, res, next) => {

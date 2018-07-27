@@ -2,13 +2,14 @@
 
 <h1>Add and Edit Procedures by Admin</h1>
 {{#each procedures}}
-    <p>
+    <h3>
         <a href="procedures/{{this._id}}">{{this.title}}</a> 
-        <button><a href="/procedure-edit?procedure_id={{this._id}}" class="edit-button">EDIT</a></button>
-        <button><a href="/procedure-add" class="edit-button">Add</a></button>
+        <button class="edit-procedure"><a href="/procedure-edit?procedure_id={{this._id}}" class="edit-button">EDIT</a></button>
         
-    </p>
+        
+    </h3>
 {{/each}}
+<button class="edit-button"><a href="/procedure-add" >Add New Procedure</a></button>
 
 
     <p>

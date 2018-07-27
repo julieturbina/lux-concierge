@@ -1,0 +1,27 @@
+<form action="/login" method="POST" id="form">
+ 
+   <p class="account-message">
+    Don't have an account? <a href="/signup">Sign up</a>
+  </p>
+ 
+  <h2>Login</h2>
+
+  <label for="username">Username</label>
+  <input type="text" name="username" placeholder="Username">
+
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="Password">
+
+
+    {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}} 
+
+  <button>Sign in</button>
+
+
+   {{!-- <div>
+     <a href="/auth/facebook">Login With Facebook</a>
+ </div> --}}
+</form>
+<img id="loginImg"src="../images/runway1.jpg">
