@@ -13,8 +13,6 @@ const Procedure     = require('./models/procedure');
 const User     = require('./models/user');
 
 
-
-//auth transfer start ===========================
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
