@@ -13,9 +13,7 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-
-
-//GET procedure page =======working! DOnt' touch!!!
+//GET procedure page =======  TESTED! DOnt' touch!!!
 
 router.get('/procedures', (req, res, next) => {
   Procedure.find()
@@ -28,7 +26,7 @@ router.get('/procedures', (req, res, next) => {
     });
 });
 
-//GET book detail view === DONE!!!! tested
+//GET procedure detail view === DONE!!!! tested
 
 router.get('/procedure/:id', (req, res, next) => {
   let procedureId = req.params.id;
@@ -41,18 +39,47 @@ router.get('/procedure/:id', (req, res, next) => {
     });
 });
 
-//RENDER procedures page ===
+//Get procedure-add page =========== CCCCCCCCCCCCCC
 
 router.get('/procedure-add', (req, res, next) => {
   res.render("procedure-add");
 });
 
-// POST new procudures ion the database
+// POST new procudures - add to database =============TESTED
 
 router.post('/procedure-add', (req, res, next) => {
   const { title, provider, review } = req.body;
   const newProcedure = new Procedure({ title, provider, review});
   newProcedure.save()
+  .then((procedure) => {
+    res.redirect('/procedures');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+
+// Edit procedures ============= test prior to uncommenting
+
+// router.get('/procedures/edit', (req, res, next) => {
+//   res.render("procedure-edit");
+// });
+
+// Edit procedures: Name, Provider and Review ============= UUUUUUUUU
+
+router.get('/procedure-edit', (req, res, next) => {
+  Procedure.findOne({_id: req.query.procedure_id})
+  .then((procedure) => {
+    res.render("procedure-edit", {procedure});
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+
+router.post('/procedure-edit', (req, res, next) => {
+  const { title, provider, review } = req.body;
+  Procedure.update({_id: req.query.procedure_id}, { $set: { title, provider, review }})
   .then((procedure) => {
     res.redirect('/procedures');
   })

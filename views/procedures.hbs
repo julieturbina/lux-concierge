@@ -4,3 +4,11 @@
 {{#each procedures}}
     <p><a href="procedure/{{this._id}}">{{this.title}}</a></p>
 {{/each}}
+
+<h1>Procedures</h1>
+{{#each procedures}}
+    <p>
+        <a href="procedures/{{this._id}}">{{this.title}}</a> 
+        <a href="/procedure-edit?procedure_id={{this._id}}" class="edit-button">EDIT</a>
+    </p>
+{{/each}}

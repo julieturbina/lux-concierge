@@ -1,0 +1,14 @@
+
+<form action="/procedure-edit?procedure_id={{procedure._id}}" method="post">
+  <label for="">Procedure:</label>
+  <input type="text" name="title" value="{{procedure.title}}"">
+
+  <label for="">Provider:</label>
+  <input type="text" name="provider" value="{{procedure.provider}}"">
+
+  <label for="">Review:</label>
+  <input type="string" name="review" value="{{procedure.review}}"">
+
+  <button type="submit">EDIT</button>
+</form>
+
