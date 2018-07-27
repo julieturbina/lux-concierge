@@ -9,9 +9,9 @@ const Procedure = require('../models/procedure.js');
 // });
 
 /* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
+// router.get('/', (req, res, next) => {
+//   res.render('index');
+// });
 
 //GET procedure page =======  TESTED! DOnt' touch!!!
 
@@ -87,5 +87,25 @@ router.post('/procedure-edit', (req, res, next) => {
     console.log(error);
   });
 });
+
+  //Get fashion page===
+  router.get('/fashion', (req, res, next) => {
+    res.render('fashion');
+  });
+  
+  //Get makeup page===
+  router.get('/makeup', (req, res, next) => {
+    res.render('makeup');
+  });
+
+ //Get Private page to ADD and EDIT existing procedures
+router.get('/private', (req, res, next) => {
+  res.render('private');
+});
+  
+// Delete procedures ============  goes here if i have the time. 
+
+
+
 
 module.exports = router;

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "start-dev": "nodemon ./bin/www",
     "dev": "DEBUG=lux-concierge:* nodemon ./bin/www"
   },
   "dependencies": {

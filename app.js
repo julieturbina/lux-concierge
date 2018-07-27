@@ -8,6 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const Provider     = require('./models/procedure');
 
 
 mongoose.Promise = Promise;
@@ -44,15 +45,20 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+//GET static files
 
+//Get home page===
+app.get('/', (req, res, next) => {
+  res.render('index');
+});
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Lux-Concierge';
 
-
-
+// Routes
 const index = require('./routes/index');
 app.use('/', index);
 
 
-module.exports = app;
+
+module.exports = app; 
