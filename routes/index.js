@@ -16,9 +16,12 @@ const User     = require('../models/user');
 //GET procedure page =======  TESTED! DOnt' touch!!!
 
 router.get('/procedures', (req, res, next) => {
+  if (!req.user){
+    res.redirect('/login');
+  }
   Procedure.find()
     .then(procedures => {
-      console.log(procedures);
+      // console.log(procedures);
       res.render("procedures", { procedures });
     })
     .catch(error => {

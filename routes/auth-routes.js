@@ -22,7 +22,9 @@ const bcryptSalt     = 10;
 //LOGOUT ROUTE ===
 
 authRoutes.get("/logout", (req, res) => {
+  console.log('who is user: ', req.user);
     req.logout();
+    console.log('user is blahhhhh: ', req.user);
     res.redirect("/");
   });
 
