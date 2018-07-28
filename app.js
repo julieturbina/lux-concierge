@@ -40,7 +40,7 @@ const MongoStore = require('connect-mongo')(session);
 ////auth transfer end==================================
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/lux-concierge', {useMongoClient: true})
+  .connect('process.env.MONGODB_URI', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!');
   }).catch(err => {
