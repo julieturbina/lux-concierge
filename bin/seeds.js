@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Procedure = require('../models/procedure');
 
 const dbName = 'lux-concierge';
-mongoose.connect(`mongodb://localhost/lux-concierge`);
+mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(`mongodb://localhost/lux-concierge`);
 
 const procedures = [
   {

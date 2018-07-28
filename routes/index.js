@@ -31,7 +31,7 @@ router.get('/procedures', (req, res, next) => {
 
 //GET procedure detail view === DONE!!!! tested
 
-router.get('/procedure/:id', (req, res, next) => {
+router.get('/procedures/:id', (req, res, next) => {
   let procedureId = req.params.id;
   Procedure.findOne({'_id': procedureId})
     .then(procedure => {
@@ -70,9 +70,10 @@ router.post('/procedure-add', (req, res, next) => {
 
 // Edit procedures: Name, Provider and Review ============= UUUUUUUUU
 
-router.get('/procedure-edit', (req, res, next) => {
-  Procedure.findOne({_id: req.query.procedure_id})
+router.get('/procedure-edit/:id', (req, res, next) => {
+  Procedure.findOne({_id: req.params.id})
   .then((procedure) => {
+    console.log('hello: ', procedure)
     res.render("procedure-edit", {procedure});
   })
   .catch((error) => {
@@ -80,9 +81,9 @@ router.get('/procedure-edit', (req, res, next) => {
   });
 });
 
-router.post('/procedure-edit', (req, res, next) => {
+router.post('/procedure-edit/:id', (req, res, next) => {
   const { title, provider, review } = req.body;
-  Procedure.update({_id: req.query.procedure_id}, { $set: { title, provider, review }})
+  Procedure.update({_id: req.params.id}, { $set: { title, provider, review }})
   .then((procedure) => {
     res.redirect('/procedures');
   })
@@ -108,7 +109,13 @@ router.get('/private', (req, res, next) => {
   
 // Delete procedures ============  goes here if i have the time. 
 
-
+router.post('/procedures/:id/delete', (req, res, next) => {
+  Procedure.findByIdAndRemove(req.params.id)
+  .then(() => {
+    res.redirect('/procedures');
+  })
+  .catch( err => next(err));
+})
 
 
 module.exports = router;

@@ -5,4 +5,7 @@
 
 
 <a href="/procedure-add">Add Procedure</a>
-<a href="/procedure-edit">Update Procedure</a>
+<a href="/procedure-edit/{{procedure._id}}">Update Procedure</a>
+<form action="/procedures/{{procedure._id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>

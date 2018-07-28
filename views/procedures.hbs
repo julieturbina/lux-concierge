@@ -4,7 +4,8 @@
 {{#each procedures}}
     <h3>
         <a href="procedures/{{this._id}}">{{this.title}}</a> 
-        <button class="edit-procedure"><a href="/procedure-edit?procedure_id={{this._id}}" class="edit-button">EDIT</a></button>
+        
+        <button class="edit-procedure"><a href="/procedure-edit/{{this._id}}" class="edit-button">EDIT</a></button>
         
         
     </h3>
