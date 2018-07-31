@@ -25,7 +25,7 @@ authRoutes.get("/logout", (req, res) => {
   console.log('who is user: ', req.user);
     req.logout();
     console.log('user is blahhhhh: ', req.user);
-    res.redirect("/");
+    res.redirect("/login");
   });
 
 
@@ -39,14 +39,14 @@ authRoutes.get("/signup", (req, res, next) => {
       const password = req.body.password;
   
       if (username === "" || password === "") {
-        res.render("/signup", { message: "Enter username and password" });
+        res.render("auth/signup", { message: "Enter username and password" });
         return;
       }
         
       User.findOne({ username })
       .then(user => {
         if (user !== null) {
-          res.render("/signup", { message: "The username already exists" });
+          res.render("auth/signup", { message: "The username already exists" });
           return;
         }
     
@@ -61,9 +61,9 @@ authRoutes.get("/signup", (req, res, next) => {
   
       newUser.save((err) => {
         if (err) {
-          res.render("/signup", { message: "Something went wrong" });
+          res.render("auth/signup", { message: "Something went wrong" });
         } else {
-          res.redirect("/procedures");
+          res.redirect("/private");
         }
       });
     })
@@ -80,7 +80,7 @@ authRoutes.get("/login", (req, res, next) => {
   
   authRoutes.post("/login", passport.authenticate("local", 
   {
-    successRedirect: "/procedures",
+    successRedirect: "/private",
     failureRedirect: "auth/login",
     failureFlash: true,
     passReqToCallback: true
@@ -99,21 +99,21 @@ authRoutes.get("/login", (req, res, next) => {
   
     User.findOne({ "username": username }, (err, user) => {
         if (err || !user) {
-          res.render("auth/login", {
-            errorMessage: "The username doesn't exist"
+          res.render("/login", {
+            errorMessage: "The username doesn't exist, please signup"
           });
           return;
         }
         if (bcrypt.compareSync(password, user.password)) {
           // Save the login in the session!
           req.session.currentUser = user;
-          res.redirect("/procedures");
+          res.redirect("/private");
         } else {
           res.render("auth/login", {
             errorMessage: "Incorrect password"
           });
         }
-        authRoutes.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
+        authRoutes.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
           res.render("private", { user: req.user });
         });
   

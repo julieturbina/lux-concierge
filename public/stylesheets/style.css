@@ -53,4 +53,12 @@ a {
   height: 35px;
   border-radius: 25px; }
 
+.logout {
+  background-color: #f9a8fe;
+  font-size: 18px;
+  width: 125px;
+  height: 35px;
+  border-radius: 25px;
+  float: right; }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,127 @@
 
 
+
+    <div class= "container">
+        <header class= "jumbotron">
+            <h1>Welcome to {{title}}</h1>
+         </header> 
+      
+                        <hr> 
+        <div>                 
+                <div>
+                        <div>
+                        <button class="edit-button"><a href="/procedure-add">View Cosmetic Procedures</a></button>
+                        </div>
+                        <br>
+                        <div>                       <div>
+                        <button class="edit-button"><a href="/makeup">Makeup Artist</a></button>
+                        </div>
+                        <br>
+                        <div>
+                        <button class="edit-button"><a href="/fashion">View fashion</a></button>
+                        </div>
+                        <br>
+
+            
+                </div> 
+            <br>
+    
+        </div>
+        <div>
+<div class="card-deck">
+                {{!-- <div class="cards-container"> --}}
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="../images/cosmetic.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Cosmetic Procedures</h4>
+                        <p>Discrete, professional services delivered at your convenience.</p>
+                        {{!-- <p class="card-text">Cosmetic Dermatology.</p> --}}
+                        <a href="/procedure-add" class="btn btn-primary">Procedures</a>
+                    </div>
+                    </div>
+        <div>            
+                <br>
+        </div>
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="../images/makeover.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Makeup Artist</h4>
+                        <p>Round the clock, on demand service to meet exacting needs.</p>
+                        {{!-- <p class="card-text">Makeup Atists.</p> --}}
+                        <a href="/makeup" class="btn btn-primary">Makeup Artist</a>
+                    </div>
+                    </div>
+        <div>            
+                <br>
+        </div>
+
+                {{!-- <div class="cards-container"> --}}
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="../images/runway1.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Fashion Designer</h4>
+                        <p>Unique creations and seasonal wardrobes to suit exacting needs.</p>
+                        {{!-- <p class="card-text">Makeup Atists.</p> --}}
+                        <a href="/fashion" class="btn btn-primary">Fashion</a>
+                    </div>
+                    </div>
+              
+</div>
+<div class="card-deck">
+           
+                    {{!-- <div class="cards-container"> --}}
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="../images/Modern-House-2.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Residential Concierge</h4>
+                        <p>Residential services tailored to meet your exact needs.</p>
+                        {{!-- <p class="card-text">Makeup Atists.</p> --}}
+                        <a href="/residential" class="btn btn-primary">Residential</a>
+                    </div>
+                    </div>
+        <div>            
+                <br>
+        </div>
+
+  
+
+                       {{!-- <div class="cards-container"> --}}
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="../images/corporate.jpeg">
+                    <div class="card-body">
+                        <h4 class="card-title">Corporate Concierge</h4>
+                        <p>Worldwide access to exclusive venues, event management and services.</p>
+                        {{!-- <p class="card-text">Makeup Atists.</p> --}}
+                        <a href="/travel" class="btn btn-primary">Travel</a>
+                    </div>
+                    </div>
+       
+
+               {{!-- <div class="cards-container"> --}}
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="../images/travel2.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Travel Concierge</h4>
+                        <p>Travel services with an emphasis on expert and insider information to ensure a memorable experience.</p>
+                        {{!-- <p class="card-text">Makeup Atists.</p> --}}
+                        <a href="/travel" class="btn btn-primary">Travel</a>
+                    </div>
+                    </div>
+
+</div>
+
+</div>
+<br>
+<div>
+
+</div>
+  
+
+
+
+{{!-- 
+
+
 <h1>Add and Edit Procedures by Admin</h1>
 {{#each procedures}}
     <h3>
@@ -11,7 +133,7 @@
     </h3>
 {{/each}}
 <button class="edit-button"><a href="/procedure-add" >Add New Procedure</a></button>
-
+ --}}
 
     <p>
         {{!-- <a href="procedures/{{this._id}}">{{this.title}}</a> 

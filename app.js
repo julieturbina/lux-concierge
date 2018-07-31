@@ -118,7 +118,7 @@ passport.use(new LocalStrategy({
   passReqToCallback: true
 }, (req, username, password, next) => {
   User.findOne({ username }, (err, user) => {
-    console.log('user from app is: ', user)
+    console.log('user from app is: ', user);
     if (err) {
       return next(err);
     }

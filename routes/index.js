@@ -17,7 +17,7 @@ const User     = require('../models/user');
 
 router.get('/procedures', (req, res, next) => {
   if (!req.user){
-    res.redirect('/login');
+    res.redirect('/procedures');
   }
   Procedure.find()
     .then(procedures => {
@@ -70,10 +70,13 @@ router.post('/procedure-add', (req, res, next) => {
 
 // Edit procedures: Name, Provider and Review ============= UUUUUUUUU
 
+router.get('/procedures-edit', (req, res, next) => {
+  res.render('procedures-edit');
+});
 router.get('/procedure-edit/:id', (req, res, next) => {
   Procedure.findOne({_id: req.params.id})
   .then((procedure) => {
-    console.log('hello: ', procedure)
+    console.log('hello: ', procedure);
     res.render("procedure-edit", {procedure});
   })
   .catch((error) => {
@@ -92,6 +95,11 @@ router.post('/procedure-edit/:id', (req, res, next) => {
   });
 });
 
+//Get procedure page ===
+
+router.get('/procedures', (req, res, next) => {
+  res.render('procedures');
+});
   //Get fashion page===
   router.get('/fashion', (req, res, next) => {
     res.render('fashion');
@@ -109,13 +117,13 @@ router.get('/private', (req, res, next) => {
   
 // Delete procedures ============  goes here if i have the time. 
 
-router.post('/procedures/:id/delete', (req, res, next) => {
+router.post('/private/:id/delete', (req, res, next) => {
   Procedure.findByIdAndRemove(req.params.id)
   .then(() => {
-    res.redirect('/procedures');
+    res.redirect('/private');
   })
   .catch( err => next(err));
-})
+});
 
 
 module.exports = router;
