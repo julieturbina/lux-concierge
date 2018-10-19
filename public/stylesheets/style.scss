@@ -7,6 +7,17 @@ a {
   color: #00B7FF;
 }
 
+body, html {
+  height: 100%;
+  /* The image used */
+  // background-image: url("rose.jpeg");
+  // background-color: red;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .cards-container {
   display: flex;

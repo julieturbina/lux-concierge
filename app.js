@@ -25,7 +25,7 @@ const flash = require("connect-flash");
 // const FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
 // const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET;
 
-const bcrypt     = require("bcrypt");
+const bcrypt     = require('bcrypt');
 const saltRounds = 10;
 
 const plainPassword1 = "HelloWorld";

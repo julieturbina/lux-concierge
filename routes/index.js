@@ -13,13 +13,11 @@ const User     = require('../models/user');
 //   res.render('index');
 // });
 
-//GET procedure page =======  TESTED! DOnt' touch!!!
+// GET procedure page =======  TESTED! DOnt' touch!!!
 
-router.get('/procedures', (req, res, next) => {
-  if (!req.user){
-    res.redirect('/procedures');
-  }
-  Procedure.find()
+router.get('/procedure', (req, res, next) => {
+  console.log(req.user);
+    Procedure.find()
     .then(procedures => {
       // console.log(procedures);
       res.render("procedures", { procedures });
@@ -27,15 +25,15 @@ router.get('/procedures', (req, res, next) => {
     .catch(error => {
       console.log(error);
     });
+
 });
 
 //GET procedure detail view === DONE!!!! tested
-
-router.get('/procedures/:id', (req, res, next) => {
+router.get('/procedure/:id', (req, res, next) => {
   let procedureId = req.params.id;
   Procedure.findOne({'_id': procedureId})
     .then(procedure => {
-      res.render("procedures-detail", { procedure });
+      res.render("procedure-detail", { procedure });
     })
     .catch(error => {
       console.log(error);
@@ -43,10 +41,21 @@ router.get('/procedures/:id', (req, res, next) => {
 });
 
 //Get procedure-add page =========== CCCCCCCCCCCCCC
-
 router.get('/procedure-add', (req, res, next) => {
   res.render("procedure-add");
 });
+
+
+
+//testing below
+router.get('/procedure-detail', (req, res, next) => {
+  res.render("procedure-detail");
+});
+
+
+
+
+//testying below
 
 // POST new procudures - add to database =============TESTED
 
@@ -55,7 +64,7 @@ router.post('/procedure-add', (req, res, next) => {
   const newProcedure = new Procedure({ title, provider, review});
   newProcedure.save()
   .then((procedure) => {
-    res.redirect('/procedures');
+    res.redirect('/procedure-add');
   })
   .catch((error) => {
     console.log(error);
@@ -70,8 +79,8 @@ router.post('/procedure-add', (req, res, next) => {
 
 // Edit procedures: Name, Provider and Review ============= UUUUUUUUU
 
-router.get('/procedures-edit', (req, res, next) => {
-  res.render('procedures-edit');
+router.get('/procedure-edit', (req, res, next) => {
+  res.render('procedure-edit');
 });
 router.get('/procedure-edit/:id', (req, res, next) => {
   Procedure.findOne({_id: req.params.id})
@@ -88,7 +97,7 @@ router.post('/procedure-edit/:id', (req, res, next) => {
   const { title, provider, review } = req.body;
   Procedure.update({_id: req.params.id}, { $set: { title, provider, review }})
   .then((procedure) => {
-    res.redirect('/procedures');
+    res.redirect('/procedure-edit');
   })
   .catch((error) => {
     console.log(error);
@@ -97,14 +106,17 @@ router.post('/procedure-edit/:id', (req, res, next) => {
 
 //Get procedure page ===
 
-router.get('/procedures', (req, res, next) => {
-  res.render('procedures');
-});
+// router.get('/procedure', (req, res, next) => {
+//   res.render('procedure');
+// });
   //Get fashion page===
   router.get('/fashion', (req, res, next) => {
     res.render('fashion');
   });
-  
+
+  router.get('/procedure', (req, res, next) => {
+    res.render('procedure');
+  });
   //Get makeup page===
   router.get('/makeup', (req, res, next) => {
     res.render('makeup');
@@ -113,9 +125,10 @@ router.get('/procedures', (req, res, next) => {
  //Get Private page to ADD and EDIT existing procedures
 router.get('/private', (req, res, next) => {
   res.render('private');
+  console.log(req.user);
 });
-  
-// Delete procedures ============  goes here if i have the time. 
+
+// Delete procedures ============  goes here if i have the time.
 
 router.post('/private/:id/delete', (req, res, next) => {
   Procedure.findByIdAndRemove(req.params.id)

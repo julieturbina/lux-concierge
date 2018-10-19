@@ -1,5 +1,74 @@
 
-<h1>Procedures on P
+
+<h1>Edit Existing procedures</h1>
+<form action="/procedure-edit/{{procedure._id}}" method="post">
+  <label for="">Procedure:</label>
+  <input type="text" name="title" value="{{procedure.title}}"">
+
+  <label for="">Provider:</label>
+  <input type="text" name="provider" value="{{procedure.provider}}"">
+
+  <label for="">Review:</label>
+  <input type="string" name="review" value="{{procedure.review}}"">
+
+  <button type="submit">EDIT</button>
+</form>
+
+
+
+
+
+<form>
+<h1>{{procedure.title}}</h1>
+<span>{{procedure.provider}}</span>
+<p>{{procedure.review}}</p>
+<a href="/">Return</a>
+
+
+
+<a href="/procedure-add">Add Procedure</a>
+<a href="/procedure-edit/{{procedure._id}}">Update Procedure</a>
+<form action="/procedures/{{procedure._id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
+
+{{!-- <h1>Add a new procedure</h1> --}}
+
+{{!-- <form action="/procedure-add" method="post">
+  <label for="">Title:</label>
+  <input type="text" name="title">
+
+  <label for="">Provider:</label>
+  <input type="text" name="provider">
+
+  <label for="">Review:</label>
+  <input type="text" name="review"> --}}
+
+     <button class="logout"><a href="/procedure-add">Add Procedure</a></button>
+
+     <button class="logout"><a href="/procedure-edit">Edit Procedure</a></button>
+     <button class="logout"><a href="/procedure-detail">Procedure Details</a></button>
+</form>
+
+<br>
+<div>
+    <button class="logout"><a href="/logout">Logout</a></button>
+</div> --}}
+
+<h1>Edit Existing procedures</h1>
+<form action="/procedure-edit/{{procedure._id}}" method="post">
+  <label for="">Procedure:</label>
+  <input type="text" name="title" value="{{procedure.title}}"">
+
+  <label for="">Provider:</label>
+  <input type="text" name="provider" value="{{procedure.provider}}"">
+
+  <label for="">Review:</label>
+  <input type="string" name="review" value="{{procedure.review}}"">
+
+  <button type="submit">EDIT</button> --
+</form>
+
 
        <div>          
                     <button class="logout"><a href="/logout">Logout</a></button>

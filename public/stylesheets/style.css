@@ -5,6 +5,14 @@ body {
 a {
   color: #00B7FF; }
 
+body, html {
+  height: 100%;
+  /* The image used */
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 .cards-container {
   display: flex;
   padding: 10% 10%;
