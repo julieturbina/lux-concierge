@@ -4,9 +4,6 @@ const Procedure = require('../models/procedure.js');
 const User     = require('../models/user');
 // Test befor uncommenting =======
 
-// router.get('/books/add', (req, res, next) => {
-//   res.render("book-add");
-// });
 
 /* GET home page */
 // router.get('/', (req, res, next) => {
@@ -14,6 +11,10 @@ const User     = require('../models/user');
 // });
 
 // GET procedure page =======  TESTED! DOnt' touch!!!
+
+router.get('/procedure', (req, res, next) => {
+  res.render('procedure');
+});
 
 router.get('/procedure', (req, res, next) => {
   console.log(req.user);
@@ -45,17 +46,10 @@ router.get('/procedure-add', (req, res, next) => {
   res.render("procedure-add");
 });
 
-
-
 //testing below
 router.get('/procedure-detail', (req, res, next) => {
   res.render("procedure-detail");
 });
-
-
-
-
-//testying below
 
 // POST new procudures - add to database =============TESTED
 
@@ -73,11 +67,6 @@ router.post('/procedure-add', (req, res, next) => {
 
 // Edit procedures ============= test prior to uncommenting
 
-// router.get('/procedures/edit', (req, res, next) => {
-//   res.render("procedure-edit");
-// });
-
-// Edit procedures: Name, Provider and Review ============= UUUUUUUUU
 
 router.get('/procedure-edit', (req, res, next) => {
   res.render('procedure-edit');
@@ -104,23 +93,30 @@ router.post('/procedure-edit/:id', (req, res, next) => {
   });
 });
 
-//Get procedure page ===
+//Get makeup page===
+router.get('/makeup', (req, res, next) => {
+  res.render('makeup');
+});
 
-// router.get('/procedure', (req, res, next) => {
-//   res.render('procedure');
-// });
-  //Get fashion page===
-  router.get('/fashion', (req, res, next) => {
-    res.render('fashion');
-  });
+//Get fashion page===
+router.get('/fashion', (req, res, next) => {
+  res.render('fashion');
+});
 
-  router.get('/procedure', (req, res, next) => {
-    res.render('procedure');
-  });
-  //Get makeup page===
-  router.get('/makeup', (req, res, next) => {
-    res.render('makeup');
-  });
+//Get Residential Concierge===
+router.get('/residential', (req, res, next) => {
+  res.render('residential');
+});
+
+//Get Corporate Concierge===
+router.get('/corporate', (req, res, next) => {
+  res.render('corporate');
+});
+
+//Get travel page===
+router.get('/travel', (req, res, next) => {
+  res.render('travel');
+});
 
  //Get Private page to ADD and EDIT existing procedures
 router.get('/private', (req, res, next) => {
